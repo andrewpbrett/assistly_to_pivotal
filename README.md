@@ -14,16 +14,16 @@ Uses the excellent assistly gem by [zencoder](https://github.com/zencoder/assist
 
 3. Add required config from your assistly API page.
 
-	heroku config:add ASSISTLY_SUBDOMAIN=mysubdomain
-	heroku config:add CONSUMER_KEY=your_key
-	heroku config:add CONSUMER_SECRET=your_secret
-	heroku config:add OAUTH_TOKEN=your_token
-	heroku config:add OAUTH_TOKEN_SECRET=your_token
+				heroku config:add ASSISTLY_SUBDOMAIN=mysubdomain
+				heroku config:add CONSUMER_KEY=your_key
+				heroku config:add CONSUMER_SECRET=your_secret
+				heroku config:add OAUTH_TOKEN=your_token
+				heroku config:add OAUTH_TOKEN_SECRET=your_token
 				
 4. Add optional config to filter on only certain channels or labels
 
-	heroku config:add ASSISTLY_LABELS=labels				# default is "" - retrieves all labels
-	heroku config:add ASSISTLY_CHANNELS=channels		# default is "email"
+				heroku config:add ASSISTLY_LABELS=labels				# default is "" - retrieves all labels
+				heroku config:add ASSISTLY_CHANNELS=channels		# default is "email"
 				
 5. Pick a username and password for Pivotal to use
 
