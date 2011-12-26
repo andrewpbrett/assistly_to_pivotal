@@ -1,8 +1,8 @@
 This is a little Sinatra app that allows you to integrate your Assistly tickets into Pivotal. 
 
-Inspired by [airbrake_to_pivotal]https://github.com/steveh/airbrake_to_pivotal
+Inspired by [airbrake_to_pivotal](https://github.com/steveh/airbrake_to_pivotal).
 
-Uses the excellent assistly gem by [this guy].
+Uses the excellent assistly gem by [zencoder](https://github.com/zencoder/assistly) though right now we're on the fork by [bobbytables](https://github.com/bobbytables/assistly).
 
 1. Grab a copy of the source
 
@@ -15,9 +15,13 @@ Uses the excellent assistly gem by [this guy].
 3. Add required config from your assistly API page.
 
         heroku config:add ASSISTLY_SUBDOMAIN=mysubdomain
+				
 				heroku config:add CONSUMER_KEY=your_key
+				
 				heroku config:add CONSUMER_SECRET=your_secret
+				
 				heroku config:add OAUTH_TOKEN=your_token
+				
 				heroku config:add OAUTH_TOKEN_SECRET=your_token
 				
 4. Add optional config to filter on only certain channels or labels
