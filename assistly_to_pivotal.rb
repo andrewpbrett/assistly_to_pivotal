@@ -15,9 +15,7 @@ class AssistlyToPivotal < Sinatra::Base
   
   $assistly = Assistly.cases
 
-  $pivotal = Pivotal.new(
-    ENV["ASSISTLY_REQUESTOR"]
-  )
+  $pivotal = Pivotal.new
 
   use Rack::Auth::Basic do |username, password|
     username == ENV["HTTP_BASIC_USERNAME"] && password == ENV["HTTP_BASIC_PASSWORD"]
