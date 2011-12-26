@@ -26,7 +26,7 @@ class Pivotal
             xml.external_id interaction.case_id
             xml.name interaction.interactionable.email.subject
             xml.description interaction.interactionable.email.body
-            xml.requested_by requestor || interaction.interactionable.email.from
+            xml.requested_by requestor || interaction.interactionable.email.from.match(/\<([^\>]*)\>/)[0].gsub(/[\>\<]/, "")
             xml.created_at({ :type => "datetime" }, interaction.created_at)
             xml.story_type "bug"
             xml.estimate nil
