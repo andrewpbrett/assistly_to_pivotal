@@ -43,7 +43,7 @@ Uses the excellent assistly gem by [zencoder](https://github.com/zencoder/assist
     * **Name:** Assistly
     * **Basic Auth username:** What you picked for HTTP_BASIC_USERNAME
     * **Basic Auth password:** What you picked for HTTP_BASIC_PASSWORD
-    * **Base URL:** http://myapp.heroku.com/
+    * **Base URL:** https://[your_subdomain].assistly.com/agent/case/
     * **Import API URL:** http://myapp.heroku.com/
     * **Active: Yes**
 
