@@ -25,6 +25,12 @@ class AssistlyToPivotal < Sinatra::Base
 
   get "/" do
     "hi!"
+    content_type "text/xml", :charset => "utf-8"
+    $pivotal.cases_to_xml Assistly.cases(
+      :labels => ENV["ASSISTLY_LABELS"] || "", 
+      :channels => ENV["ASSISTLY_CHANNELS"] || "",
+      :status => "new,open,pending", 
+      :count => 100).results
     # content_type "text/xml", :charset => "utf-8"
     # $pivotal.cases_to_xml Assistly.cases(
     #   :labels => ENV["ASSISTLY_LABELS"] || "", 
