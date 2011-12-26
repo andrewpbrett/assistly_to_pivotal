@@ -14,46 +14,39 @@ Uses the excellent assistly gem by [zencoder](https://github.com/zencoder/assist
 
 3. Add required config from your assistly API page.
 
-        heroku config:add ASSISTLY_SUBDOMAIN=mysubdomain
-				
-				heroku config:add CONSUMER_KEY=your_key
-				
-				heroku config:add CONSUMER_SECRET=your_secret
-				
-				heroku config:add OAUTH_TOKEN=your_token
-				
-				heroku config:add OAUTH_TOKEN_SECRET=your_token
+	heroku config:add ASSISTLY_SUBDOMAIN=mysubdomain
+	heroku config:add CONSUMER_KEY=your_key
+	heroku config:add CONSUMER_SECRET=your_secret
+	heroku config:add OAUTH_TOKEN=your_token
+	heroku config:add OAUTH_TOKEN_SECRET=your_token
 				
 4. Add optional config to filter on only certain channels or labels
 
-				heroku config:add ASSISTLY_LABELS=labels 			# default is "" - retrieves all labels
-				heroku config:add ASSISTLY_CHANNELS=channels 	# default is "email"
+	heroku config:add ASSISTLY_LABELS=labels				# default is "" - retrieves all labels
+	heroku config:add ASSISTLY_CHANNELS=channels		# default is "email"
 				
-5. Pick a username for Pivotal to use
+5. Pick a username and password for Pivotal to use
 
         heroku config:add HTTP_BASIC_USERNAME=pivotal
-
-6. Pick a password for Pivotal to use
-
         heroku config:add HTTP_BASIC_PASSWORD=password
 
-7. Deploy to Heroku
+6. Deploy to Heroku
 
         git push heroku master
 
-8. Test you're getting XML back
+7. Test you're getting XML back
 
         open http://myapp.heroku.com/
 
-9. Add the integration to Pivotal. From the "Configure Integrations" page, add an "Other" integration.
+8. Add the integration to Pivotal. From the "Configure Integrations" page, add an "Other" integration.
 
     * **Name:** Assistly
     * **Basic Auth username:** What you picked for HTTP_BASIC_USERNAME
     * **Basic Auth password:** What you picked for HTTP_BASIC_PASSWORD
-    * **Base URL:** http://acme.airbrakeapp.com/errors/
+    * **Base URL:** http://myapp.heroku.com/
     * **Import API URL:** http://myapp.heroku.com/
     * **Active: Yes**
 
-12. From the "More" menu of Pivotal Tracker you should see "Assistly"
+9. From the "More" menu of Pivotal Tracker you should see "Assistly"
 
-13. Buy me a beer.
+10. Buy me a beer.
