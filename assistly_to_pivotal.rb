@@ -13,17 +13,13 @@ class AssistlyToPivotal < Sinatra::Base
     config.oauth_token_secret = ENV["OAUTH_TOKEN_SECRET"]
   end
   
-  $assistly = Assistly.cases
-
-  $pivotal = Pivotal.new
-
   use Rack::Auth::Basic do |username, password|
     username == ENV["HTTP_BASIC_USERNAME"] && password == ENV["HTTP_BASIC_PASSWORD"]
   end
 
   get "/" do
     content_type "text/xml", :charset => "utf-8"
-    $pivotal.cases_to_xml Assistly.cases(
+    Pivotal.new.cases_to_xml Assistly.cases(
       :labels => ENV["ASSISTLY_LABELS"] || "", 
       :channels => ENV["ASSISTLY_CHANNELS"] || "",
       :status => "new,open,pending", 

@@ -3,9 +3,6 @@ require "builder"
 
 class Pivotal
 
-  def initialize
-  end
-
   def cases_to_xml(cases)
     buffer = ""
 
