@@ -2,6 +2,7 @@ UPDATE 2/23/2012: Assistly is moving their endpoints to desk.com. If you've alre
 
     cd myapp
     git pull origin master
+    bundle update
     git push heroku master
 
 This is a little Sinatra app that allows you to integrate your Assistly tickets into Pivotal. 
