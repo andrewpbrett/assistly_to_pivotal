@@ -2,4 +2,4 @@ source :rubygems
 
 gem "sinatra"
 gem "builder"
-gem "assistly", :git => "http://github.com:andrewpbrett/assistly.git"
+gem "assistly", :git => "https://github.com:andrewpbrett/assistly"
