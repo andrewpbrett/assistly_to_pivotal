@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:andrewpbrett/assistly.git
+  remote: https://github.com/andrewpbrett/assistly
   revision: c717fca19bdfd812be4b3c7275fefc8a26b7c082
   specs:
     assistly (0.2.6)
