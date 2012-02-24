@@ -1,8 +1,14 @@
+UPDATE 2/23/2012: Assistly is moving their endpoints to desk.com. If you've already installed this app prior to 2/23, you'll need to update and push the new code to Heroku:
+
+    cd myapp
+    git pull origin master
+    git push heroku master
+
 This is a little Sinatra app that allows you to integrate your Assistly tickets into Pivotal. 
 
 Inspired by [airbrake_to_pivotal](https://github.com/steveh/airbrake_to_pivotal).
 
-Uses the excellent assistly gem by [zencoder](https://github.com/zencoder/assistly) though right now we're on the fork by [bobbytables](https://github.com/bobbytables/assistly).
+Uses the excellent assistly gem by [zencoder](https://github.com/zencoder/assistly) though right now we're on my fork of the fork by [bobbytables](https://github.com/bobbytables/assistly) - only diff is that we use desk.com instead of assistly.com so we don't get shut down when they complete the transition. 
 
 1. Grab a copy of the source
 
