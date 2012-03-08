@@ -18,10 +18,11 @@ class AssistlyToPivotal < Sinatra::Base
 
   get "/" do
     content_type "text/xml", :charset => "utf-8"
+    days = ENV["ASSISTLY_DAY_COUNT"] || 7
     Pivotal.new.cases_to_xml Assistly.cases(
       :labels => ENV["ASSISTLY_LABELS"] || "", 
       :channels => ENV["ASSISTLY_CHANNELS"] || "",
       :status => "new,open,pending", 
-      :count => ENV["CASE_COUNT"] || 10).results
+      :since_updated_at => (Time.now - days*24*3600).to_i).results
   end
 end

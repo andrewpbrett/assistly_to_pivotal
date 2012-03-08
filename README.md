@@ -31,7 +31,7 @@ Uses the excellent assistly gem by [zencoder](https://github.com/zencoder/assist
 
 				heroku config:add ASSISTLY_LABELS=labels				# default is "" - retrieves all labels
 				heroku config:add ASSISTLY_CHANNELS=channels		# default is "email"
-				heroku config:add CASE_COUNT=count							# default is 10 to avoid timeout errors
+				heroku config:add ASSISTLY_DAY_COUNT=count			# number of days of cases to retrieve; default is 7 to avoid timeout errors
 				
 5. Pick a username and password for Pivotal to use
 
