@@ -1,0 +1,1 @@
+web: bundle exec ruby assistly_to_pivotal.rb -p $PORT
