@@ -21,5 +21,5 @@ get "/" do
     :labels => ENV["ASSISTLY_LABELS"] || "", 
     :channels => ENV["ASSISTLY_CHANNELS"] || "",
     :status => "new,open,pending", 
-    :count => 100).results
+    :count => ENV["CASE_COUNT"] || 10).results
 end
