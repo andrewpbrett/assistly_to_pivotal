@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Assistly to pivotal by andrewpbrett</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Assistly to pivotal</h1>
+        <p>Push Assistly tickets into a Pivotal Tracker feed using a Heroku-ready Sinatra app</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/andrewpbrett/assistly_to_pivotal" class="button fork"><strong>Fork On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/andrewpbrett/assistly_to_pivotal/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/andrewpbrett/assistly_to_pivotal/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <p>UPDATE 2/23/2012: Assistly is moving their endpoints to desk.com. If you've already installed this app prior to 2/23, you'll need to update and push the new code to Heroku:</p>
+
+<pre><code>cd myapp
+git pull origin master
+bundle update
+git push heroku master
+</code></pre>
+
+<p>This is a little Sinatra app that allows you to integrate your Assistly tickets into Pivotal. </p>
+
+<p>Inspired by <a href="https://github.com/steveh/airbrake_to_pivotal">airbrake_to_pivotal</a>.</p>
+
+<p>Uses the excellent assistly gem by <a href="https://github.com/zencoder/assistly">zencoder</a> though right now we're on my fork of the fork by <a href="https://github.com/bobbytables/assistly">bobbytables</a> - only diff is that we use desk.com instead of assistly.com so we don't get shut down when they complete the transition. </p>
+
+<ol>
+<li>
+<p>Grab a copy of the source</p>
+
+<pre><code>git clone git://github.com/andrewpbrett/assistly_to_pivotal.git
+</code></pre>
+</li>
+<li>
+<p>Create a Heroku app</p>
+
+<pre><code>heroku create myapp
+</code></pre>
+</li>
+<li>
+<p>Add required config from your assistly API page.</p>
+
+<pre><code>        heroku config:add ASSISTLY_SUBDOMAIN=mysubdomain
+        heroku config:add CONSUMER_KEY=your_key
+        heroku config:add CONSUMER_SECRET=your_secret
+        heroku config:add OAUTH_TOKEN=your_token
+        heroku config:add OAUTH_TOKEN_SECRET=your_token
+</code></pre>
+</li>
+<li>
+<p>Add optional config to filter on only certain channels or labels</p>
+
+<pre><code>        heroku config:add ASSISTLY_LABELS=labels                # default is "" - retrieves all labels
+        heroku config:add ASSISTLY_CHANNELS=channels        # default is "email"
+        heroku config:add ASSISTLY_DAY_COUNT=count          # number of days of cases to retrieve; default is 7 to avoid timeout errors
+</code></pre>
+</li>
+<li>
+<p>Pick a username and password for Pivotal to use</p>
+
+<pre><code>heroku config:add HTTP_BASIC_USERNAME=pivotal
+heroku config:add HTTP_BASIC_PASSWORD=password
+</code></pre>
+</li>
+<li>
+<p>Deploy to Heroku</p>
+
+<pre><code>git push heroku master
+</code></pre>
+</li>
+<li>
+<p>Test you're getting XML back</p>
+
+<pre><code>open <a href="http://myapp.heroku.com/">http://myapp.heroku.com/</a>
+</code></pre>
+</li>
+<li>
+<p>Add the integration to Pivotal. From the "Configure Integrations" page, add an "Other" integration.</p>
+
+<ul>
+<li>
+<strong>Name:</strong> Assistly</li>
+<li>
+<strong>Basic Auth username:</strong> What you picked for HTTP_BASIC_USERNAME</li>
+<li>
+<strong>Basic Auth password:</strong> What you picked for HTTP_BASIC_PASSWORD</li>
+<li>
+<strong>Base URL:</strong> https://[your_subdomain].assistly.com/agent/case/</li>
+<li>
+<strong>Import API URL:</strong> <a href="http://myapp.heroku.com/">http://myapp.heroku.com/</a></li>
+<li><strong>Active: Yes</strong></li>
+</ul>
+</li>
+<li><p>From the "More" menu of Pivotal Tracker you should see "Assistly"</p></li>
+<li><p>Buy me a beer.</p></li>
+</ol>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/andrewpbrett">andrewpbrett</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
